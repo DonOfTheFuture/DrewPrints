@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta  http-equiv="X-UA-Compatible" content="App Made By Donald Harris">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="" rel="stylesheet">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <style>
+ html{
+  margin-top: 0px;
+  background-color: blue;
+background-repeat: repeat;
+  background-image: url('blueprint.jpg');
+}
+body{
+}
+#canvas-div>button{
+  border: solid 1px white;
+    color: white;
+
+}
+button:hover{
+  cursor: pointer;
+}
+button:active{
+border: darkblue 1px solid;
+}
+header{
+  text-align: center;
+  background-image:linear-gradient(blue,cornflowerblue,white);
+  background-repeat: no-repeat;
+    border: solid 5px white;
+  margin-top: -9px;
+
+}
+
+header > h1{
+  font-size: 50px;
+  margin: 0px;
+  text-decoration: underline;
+  color: white;
+  font-family: sans-serif;
+}
+nav{
+  border: solid 1px white;
+  height: 50px;
+  background-color: white;
+}
+nav > button{
+  position: relative;
+  width: 16%;
+  top: 0px;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  font-size: 20px;
+  color: white;
+  border:solid 4px white;
+   transition: text-shadow .5s;
+}
+nav > button:hover{
+  border: solid 2px white;
+  font-size: 22px;
+  text-shadow: 3px 3px darkblue;
+  background-image: url('https://cdn.wallpapersafari.com/4/28/cKtJfL.jpeg');
+  cursor: url('https://icon2.cleanpng.com/20180702/ehh/kisspng-hammer-tool-clip-art-5b3a0a1fcbda94.238799291530530335835.jpg') auto;
+}
+nav > button:active{
+    background:linear-gradient(blue,cornflowerblue, blue);
+}
+nav> div{
+  position: relative;
+  width: 50%; 
+  border-color: white;
+}
+nav >div >ul{
+  position: absolute;
+  width:85%;
+  text-align: center; 
+  list-style-type: none;
+  z-index: 2; 
+  float: right;
+  margin-top: 0px;
+  right: 0px;
+}
+nav>div>ul>li{
+    background-color:white;
+
+  position: relative;
+  border: solid 1px black;
+  margin: 0px;
+  text-align: center;
+  width: 119%;
+  left: -18%;
+  height: 30px;
+  line-height: 205%;
+}
+nav>div>ul>li:hover{
+  background-color: lightblue;
+}
+nav> div>input{
+  height: 45px;
+  width: 40%;
+  text-align: center;
+  font-size: 20px;
+  transition: border 1s;
+  border:white solid 1px;
+  background-color: white;
+  outline-color:blue; 
+}
+nav> div>input:hover{
+  border: solid 2px darkblue;
+}
+nav> div>button{
+  height: 51px;
+  width: 23%;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  color: white;
+  border-color: white;
+  
+}
+nav > button, nav >div{
+  height: 50px;
+  display: inline;
+}
+#nav{
+height: 70px;
+width: 100%;
+ white-space: nowrap;
+ overflow-y: hidden;
+ overflow-x: auto;
+ position: relative;
+ margin-top:0px;
+}
+#prjct-nav{
+  position: relative;
+  margin: auto;
+    width:100%;
+    border: solid 1px white;
+text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: no-wrap;
+  background-color: blue;
+  }
+ #prjct-nav > a{
+   text-decoration: none;
+   cursor: pointer;
+   color: white;
+   display: inline;
+  }
+  #prjct-nav > a:hover{
+     text-decoration: underline;
+  }
+#print-sel{
+  position: relative;
+  margin: auto;
+  display: grid;
+  background: radial-gradient(lightblue,cornflowerblue, blue);
+  grid-template-columns: 23% 23% 23% 23%;
+  grid-gap: 2.2%;
+  opacity: .93;
+  border: solid 2px white;
+}
+#print-img{
+   text-align: center;
+  position: relative;
+  border: solid 1px black;
+  background-color: white;
+  height: 210px;
+}
+
+#print-img:hover{
+ bottom: 8px; 
+    box-shadow: 15px 15px 15px lightblue;
+  background-image: url('blue_cog.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+  z-index: 3;
+      border: solid 1px lightblue;
+      opacity: .9;
+    }
+#print-img > h3{
+   position: relative;
+   background: linear-gradient(cornflowerblue, blue, cornflowerblue)
+}
+#print-img > button{
+  width: 100%;
+}
+#empt-ind{
+animation-name: growborder;
+animation-play-state: playing;
+animation-iteration-count: infinite;
+  animation-duration: 5s;
+    background-image: linear-gradient(to bottom, rgba(240, 255, 40, 1) 0%, rgba(240, 255, 40, 1) 100%), linear-gradient(to bottom, rgba(240, 40, 40, 1) 0%, rgba(240, 40, 40, 1) 100%);
+
+}
+@keyframes growborder{
+  0%{top: 25%;}
+  25%{top: 22%;}
+  50%{top: 25%;}
+  75%{top: 22%;}
+  100%{top: 25%;}
+}
+#canvas-div {
+  position: relative;
+  height: 655px;
+  width: 70%;
+  float: left;
+  margin: 0px;
+  margin-bottom: -50px;
+}
+
+#print > h2{
+  text-align: center;
+  background-color: cornflowerblue;
+  margin-bottom: 0px;
+}
+#canvas > canvas{
+  width: 100%;
+  background-color: white;
+  height: inherit;
+  position: relative;
+  margin-top: -25px;
+}
+#canvas-div> #canvas{
+  float: right;
+  position: relative;
+  width: 86%;
+  height: 490px;
+  bottom: 510px;
+  margin-bottom: -355px;
+  margin-top: 20px;
+  
+}
+#canvas-div > button{
+  border: 1px white solid;
+    color: white;
+}
+#canvas-opt{
+color: white;
+  position: relative;
+  width: 100%;
+  margin-bottom: 0px;
+  height:55px;
+   background: linear-gradient(blue,cornflowerblue, blue);
+}
+#canvas-div > #shapes{
+  text-align: center;
+    background:linear-gradient(blue,cornflowerblue, blue);
+  
+}
+#canvas-opt > button{
+  width: 13%;
+  height: 55px;
+  text-align: center;
+  position: relative;
+  margin-right: -4px;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  border-color: white;
+  color: white;
+}
+#canvas-opt>h3{
+  position: relative;
+  display: inline;
+  text-align: center;
+  margin-left: 3%;
+}
+#canvas-opt>input[type=range]{
+  width: 10%;
+  text-align: center;
+  display: inline;
+  margin: 0px;
+  margin-right: -20px;
+  margin-left:1%;
+}
+#canvas-opt > p{position: relative;margin:0px;display: none; }
+#canvas-div > #shapes{
+  position: relative;
+  width: 13%;
+  border: solid 1px darkblue;
+  margin: 0px;
+  top: 25px;
+}
+#shapes > input[type=range]{
+  margin-bottom: 80px;
+}
+#canvas-div>#lineStyleBtns{
+  height: 100px;
+  width: 13%;
+  margin-bottom: -25px;
+  linear-gradient(blue,cornflowerblue, blue)
+}
+#canvas-div > #lineStyleBtns >button{
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  color: white;
+    border-color: white;
+
+}
+#canvas-div > #lineStyleBtns > h3{
+  color: white;
+
+}
+#shapes{
+    background: linear-gradient(blue,cornflowerblue, blue);
+	
+}
+
+#shapes > button{
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  color: white;
+  border-color: white;
+
+}
+#shapes > input[type=range]{
+ width: 88%;
+  margin-bottom: 25px;
+  position: relative;
+  top: 6px;
+}
+#shapes > p{
+  bottom: 30px;
+}
+#shapes > h4, h3{
+  margin: 0px;
+  margin-bottom: 0px;
+    color: white;
+
+}
+#canvas-style{
+  position: relative;
+  height: 30px;
+ top: -30px;
+   border-color: white;
+
+}
+#canvas-style > button{
+  color: white;
+  border-color: white;
+  
+}
+#rangeIns{
+  position: relative;
+  padding-top: 30px;
+  top:-170px;
+  float: right;
+  width: 86%;
+  height: 57px;
+  border: solid 1px white;
+  text-align: center;
+    background: linear-gradient(blue,cornflowerblue, blue);
+}
+#rangeIns > input[type=range]{
+  position: relative;
+  width: 30%;
+  display: inline;
+  bottom:7px;
+}
+#rangeIns > p{
+  display: inline;
+  margin: 0px;
+    color: white;
+
+}
+
+#rangeIns > h3{
+  position: relative;
+  line-height: 0px;
+  margin: 0px;
+  top: 0px;  
+  margin-top: 0px;
+  margin-left: 2%;
+    display: inline;
+  top: -10px;
+    color: white;
+
+}
+
+#step-nav{
+  text-align: center;
+  float: right;
+  width: 29%;
+  height: 623px;
+  position: relative;
+  margin: 0px;
+  overflow-y:auto;
+  border: solid 1px black;
+  background-color: white;
+overflow-x: hidden;
+}
+#step-nav > h2{
+  background: linear-gradient(blue,cornflowerblue, blue);
+  margin: 0px 0px  0px 0px;
+  padding: 13px;
+  border: darkblue 1px solid;
+    color: white;
+
+}
+#step-nav>div, img{
+  border: solid 1px black;
+  width: 100%;
+}
+#nav-btns{
+  position: relative;
+  float: right;
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+    border-color: white;
+
+}
+#nav-btns > button{
+  width: 49.755%;
+  height: inherit;
+  font-size: 40px;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  color: white;
+  border-color: white;
+
+}
+#back-btn{
+position: relative;
+float: left;
+width: 100%;
+height: 20px;
+margin: 0px;
+}
+#back-btn > button{
+  height: inherit;
+  position: relative;
+  margin: 0px;
+  width: 10%;
+    color: white;
+
+}
+#sel-nav-div{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+    border: solid 1px white;
+width: 100%;
+}
+#sel-nav-div > div{
+  width: 50%;
+  border: white 1px solid;
+}
+#sel-nav-div > div > button{
+  width: 100%;
+  height: 30px;
+  font-size: 26px;
+  border:solid 1px black;
+  background: white;
+}
+#sel-nav-div > div > button{
+   color: white;
+  background: linear-gradient(blue,cornflowerblue, blue);
+  border: 1.9px white solid;
+}
+#right-nav{
+  position: relative;
+  margin-left: 30%;
+}
+
+  </style>
+    <title>DrewPrints</title>
+</head>
+<body>
+  
+  <header>
+    <h1>DrewPrints</h1>
+    </header>
+  
+  <nav>          
+    <button style="font-size: 90%;" crossorigin="anonymous"	onclick="newProject(event)" ><i class="fa fa-plus"></i></button>
+          <button style="font-size: 90%;" crossorigin="anonymous" onclick="clearSession()">Delete New</button>
+     <button style="font-size: 90%;" crossorigin="anonymous" onclick="del8()">Delete Page</button>
+    <div id="search">
+      <input type="text" onblur="$(this).parent().find('ul').animate({opacity: '0', width: '0%'}).slideUp()" onkeypress="deleteXtra" oninput="filterPrjcts(this);$(this).parent().find('ul').animate({opacity: '1', width: '85%'}).slideDown()" onkeydown="filterPrjcts(this);$(this).parent().find('ul').slideDown()" placeholder="Search For Projects...">
+      <button><i  class="fa fa-search"></i></button>
+   <ul style="display : none">
+      </ul>
+    </div>
+       
+</nav>
+  
+  <div style="opacity: .4" id="sel-nav-div">
+    <div class="sel-nav-btn" id="nav-left">
+      <button><</button>
+    </div>
+        <div class="sel-nav-btn" id="nav-right">
+      <button>></button>
+    </div>
+  </div>
+
+    <div style="display: none" id="print-sel">
+       <div onmouseover="previewPrjcts(this)" class="" id="print-img" style="display: none;text-align: center;position: relative;border: solid 1px black;background-color: white;height: 210px;" >
+          <img src="" />
+         <h3>Name</h3>
+      <button>X</button>
+      </div>
+  </div>
+  <div id="prjct-nav">
+        <a  id="page-num">1</a>
+      </div>
+    <div id="print-div">
+    <div style="display:none" id="print" class="">
+  <h2 style="display:none"></h2>
+  <div id="back-btn">
+    <button>Back to Select</button>
+  </div> 
+    <div tabindex="0" style="display:none" id="nav">
+        <div style="border: solid 1px black;height: inherit;width: 150px;position: relative;display: none;" id="img-div" class="">
+            <img src="" alt="" />
+        </div>
+    </div>
+          <div id="step-nav">
+		  	                <h2>Project Steps</h2>
+            <div style="display: none;">
+              <img src="" alt=""/>
+            </div>       
+        </div>
+    <div id="canvas-div">
+
+        <div id="canvas-opt">
+        <button title="clears the canvas">Clear</button>
+          <button title="downloads this sketch"><i class="fa fa-download"></i></button>
+          <button title="saves the project and steps"><i class="fa fa-save"></i></button>
+          <button title="deletes project data"><i class="fa fa-remove"></i></button>
+          <button title="add sketch to steps">+<i class="fas fa-list-ol"></i></button>
+          <button title="insert a text node"><i class="fa fa-text"></i></button>
+          <h3><i class="material-icons">text_size</i></h3><input type="range" min="10" max="60"><p></p>
+        </div>
+         <div id="lineStyleBtns">
+           <button title="click to draw"><i class="fa fa-pencil"></i></button>
+           <button title="click to erase"><i class="fa fa-eraser"></i></button>
+        </div>
+        <div id="shapes">
+            <button title="add square"><i class="fas fa-square"></i></button>
+            <button title="add circle"><i class="fas fa-circle"></i></button>
+          <button title="makes line">solid/dot</button>
+            <button title="clears line coords">Clear Line Pos</button>
+            <h3>Shape Size</h3>
+          <h4>x</h4>
+            <input type="range" min="5" max="200"></input>
+            <p style="display: none">50</p>
+			<hr>
+          <h4>y</h4>
+           <input type="range" min="5" max="200"></input>
+            <p style="display: none">50</p>
+          <hr>
+            <h3>Shape Color</h3>
+            <input type="range" min="0" max="1020" ></input>
+            <p style="display: none">50</p><p style="position: absolute; display: none"id="color"></p>
+
+<hr/>
+		
+<!--		<input placeholder="3d shape search"/><button>+</button>-->
+	   </div>
+    <div id="canvas">
+        <canvas class=""></canvas>
+      </div>
+      
+        <div  id="canvas-style">
+            <div id="rangeIns">
+           <h3>Line Width:</h3>
+           <input min="1" max="15" type="range"></input>
+           <p>1</p>
+           
+           <h3>Line Color:</h3>
+           <input type="range" min="0" max="1020" ></input>
+           <p style="display: none">0</p><p id="color">rgb(0,0,0)</p>
+        </div>
+     
+          
+
+        </div>
+        </div>
+               <div  id="nav-btns">
+            <button title="undo" style="opacity:.5" id="prev"><</button>
+            <button title="redo" style="opacity:.5" id="after">></button>
+        </div>
+    </div>
+           
+    </div>
+   </div>
+
+   </body>
+ <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.js" integrity="sha512-+maVcOki4j7Zo1VOqbhjH/fKV7iuE9WYMdhObx1ozxz2xu3qZMVCGHOAZKLKLksakyaWllQzafnLZSGBRl3lRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.module.js" integrity="sha512-4fG8RHM7G05KGuPlUve9+bkQgXAXnoEYHpM/k1IT2Qhsxq2KkoYIt3L5WQx65lCJJ3udrbjrlbOxEzvEl7unZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" integrity="sha512-334uBDwY0iZ2TklV1OtDtBW9vp7jjP7SWRzT7Ehu1fdtPIjTpCwTSFb8HI/YBau9L1/kRBEOALrS229Kry4yFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.module.min.js" integrity="sha512-tzlZk9pQTg2yyYYN+VnoGi0f3X0xLskWh9G+F1IhgkBlUXLA44OdnwLlVm8A9nMlHm6Vo+QaDLVhnWU7iX+SLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.16.1/dist/lil-gui.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three-orbitcontrols@2/OrbitControls.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.16.1/dist/lil-gui.umd.min.js"></script>-->
+   <script async="" src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+<script type="text/javascript">
+ function canvasOptBtns(){
+    var canvasDiv = document.getElementById('canvas-div')
+	        let stepDiv = canvasDiv.previousElementSibling
+let prjctDiv = canvasDiv.parentElement
+	
+	let canvasDivDivs = canvasDiv.getElementsByTagName('div')
+    var canvas = canvasDivDivs["canvas"].children[0]
+    let projectName = canvasDiv.parentElement.querySelector('h2').innerText
+    let ctx = canvas.getContext('2d')
+    var canDivBtns = canvasDiv.querySelector('#canvas-opt')
+    let stepNum = 0 
+	
+		let prjctsStrg = JSON.parse(localStorage.getItem('projects'))
+    canDivBtns.querySelectorAll('button')[0].onclick = function(){
+     let newImgData = ctx.createImageData(Math.round(((screen.availWidth*100)/100)), 900)
+      ctx.putImageData(newImgData, 0,0)
+    }
+    canDivBtns.querySelectorAll('button')[1].onclick = function(){
+        let a = document.createElement('a')
+        a.href = `${canvas.getAttribute('class')}.jpeg`
+        a.type="image/jpeg"
+       let url = canvas.toDataURL('image/jpeg')
+       a.download = url
+       canvasDiv.appendChild(a)
+       a.click()
+       canvasDiv.removeChild(a)
+    }
+    canDivBtns.querySelectorAll('button')[2].onclick = function(){
+        let stepDivs = stepDiv.querySelectorAll('div')
+		let imgArr = []
+	    let nPrjctObj = Object.create({})
+		let obj = Object.create({})
+		   let dateFunct = new Date()
+   let hour = dateFunct.getHours(), min = dateFunct.getMinutes(), sec = dateFunct.getSeconds(),mSec=  dateFunct.getMilliseconds() , month = dateFunct.getMonth(), year = dateFunct.getYear(), day = dateFunct.getDay()
+   let fullDate = `${year}${(month+1)}${day}${hour}${min}${sec}${mSec}`
+			obj.name = canvas.parentElement.parentElement.parentElement.querySelector('h2').innerText
+			obj.objKey = canvas.getAttributeNode('class').value
+			obj.steps = []
+			obj.date = parseInt(fullDate, 10)
+			  
+			if(prjctsStrg === null||prjctsStrg === 'null'){
+			let newArr = []	
+			newArr.push(obj)
+			localStorage.setItem('projects', JSON.stringify(newArr))
+			}else{
+			let objExsts = prjctsStrg.some(o =>{return o.name == obj.name && o.objKey == obj.objKey })
+			//if(prjctsStrg.length > 0){
+			  if(objExsts === false){
+			   
+						prjctsStrg.push(obj)
+			localStorage.setItem('projects', JSON.stringify(prjctsStrg))
+	//}
+  }		
+}
+		    prjctsStrg = JSON.parse(localStorage.getItem('projects'))
+		    for(let o = 0; o < prjctsStrg.length; o++){
+				 let objPropArr
+			if(prjctsStrg[o].objKey == canvas.className){ 
+		 objPropArr =  Object.keys(prjctsStrg[o])
+		 for(let p = 0; p <= objPropArr.length; p++){
+		   nPrjctObj[objPropArr[p]] = obj[objPropArr[p]]
+		 }
+		
+		 stepDivs.forEach((s, i)=>{
+		 if(i > 0){
+		 Object.defineProperty(s, 'img', {value: s.querySelector('img')})
+		 let attrs = ['alt', 'src']
+		 attrs.forEach(a =>{
+		     Object.defineProperty(s['img'], a, {value: s['img'].getAttributeNode(a).value})
+		 })
+		             let imgObj = Object.create({})
+            imgObj.alt = s['img']['alt']
+            imgObj.imgSrc = s['img']['src']
+    		  imgArr[i-1] = imgObj
+			}
+		 })
+		
+		 nPrjctObj.name =prjctsStrg[o].name
+		 nPrjctObj.objKey = prjctsStrg[o].objKey
+		 nPrjctObj.steps = imgArr
+		 nPrjctObj.date = prjctsStrg[o].date
+		 prjctsStrg.splice(prjctsStrg.indexOf(prjctsStrg[o]), 1)
+		 prjctsStrg[o] = nPrjctObj
+		 localStorage.setItem('projects', JSON.stringify(prjctsStrg))
+	//	 console.log(JSON.parse(localStorage.getItem('projects')))
+		 break;
+		 }
+		}
+	   } 
+    canDivBtns.querySelectorAll('button')[3].onclick = function(){
+      let tags = ['h2', '#canvas', '#step-nav']
+	   tags.forEach(t =>{
+	      Object.defineProperty(prjctDiv, t, {value: prjctDiv.querySelectorAll(t)[0]})
+		  
+	   })
+	   let newH2 = tags["h2"].cloneNode(true)
+	   let step = tags["step-nav"].querySelectorall('div')[0].cloneNode(true)
+	   let elemCloneArr = [newH2, step]
+	   newH2.innerText = "Project Steps"
+        let stepNav = canvasDiv.previousElementSibling
+        let steps = stepNav.children
+    
+		let projects = JSON.parse(localStorage.getItem('projects'))
+		if(projects !== null){
+		   if(projects.length > 0){
+		let objExsts = projects.some(p=>{return p.objKey === prjctDiv.parentElement.className})
+		if(objExsts === true){
+		for(let o in projects){
+		if(o.objKey === prjctDiv.className){
+		projects.splice(o, 1)
+		localStorage.setItem('projects', JSON.stringify(projects))
+		
+		}
+		}}
+      }}
+	  
+			stepNav.innerHTML = ''
+			elemCloneArr.forEach(e=>{stepNav.appendChild(e)})
+			let newImgData = ctx.createImageData(Math.round(((window.innerWidth*100)/100)), window.innerHeight)
+      ctx.putImageData(newImgData, 0,0)
+	  let allPs = canvasDiv.querySelectorAll('p')
+	    allPs.forEach(p =>{
+		  p.innerText = ''
+		})
+	  		toPrjctSel()
+		let printSel = prjctDiv.parentElement.previousElementSibling.querySelectorAll('div')
+		let sels = printSel.getElementsByTagName("div")
+		sels[`${canvas.getAttributeNode('class').value}`].querySelectorAll('button')[0].click()
+		canvas.getAttributeNode('class').value = ''
+				prjctDiv.querySelector('h2').innerText = ''
+				location.href = location.href
+	  }
+    canDivBtns.querySelectorAll('button')[4].onclick = function(){
+	let stepNum
+        var canStepNav = canvasDiv.previousElementSibling
+        let steps = canStepNav.querySelectorAll('div')
+        let newStep = steps[0].cloneNode(true)
+		newStep.addEventListener('click', function(e){
+           let tchEv = e.target.touches || e.touches
+		   let stepInfo = (JSON.parse(sessionStorage.getItem('stepInfo') === null))? [] : JSON.parse(sessionStorage.getItem('stepInfo'))
+		  
+				if(tchEv == 2){
+				  let conSwtch = confirm('Switch with another img?')
+				  if(conSwtch === true){
+				   if(stepInfo.length === 1){
+				   let newObj = Object.create({})
+				   newObj.name = this.alt
+				   newObj.imgSrc = this.src
+				   stepInfo.push(newObj)
+				   let [firImg, secImg] = stepInfo
+				      newStep.children[0].src = firImg.imgSrc
+				      allDivs(canStepNav)[firImg.sel]
+				   }}else{
+				     e.preventDefault()
+				   }
+				}
+		}, true)
+        newStep.style.display = 'block'
+        newStep.querySelector('img').src = canvas.toDataURL('image/png')
+		let rndmNum = (Math.random()+'').slice(1, 8)
+        newStep.querySelector('img').getAttributeNode('alt').value = `${canvasDiv.parentElement.querySelector('h2').innerText}${rndmNum}`
+			if(steps.length == 1){
+		stepNum = 0
+		}else{
+            for(let d = 1; d < canStepNav.length; d++){
+                if(canStepNav[d].hasFocus() === true){
+                    stepNum = d
+                    break;
+                }
+            }
+			}
+	  newStep.querySelector('img').onclick = function(){
+            this.focus()
+            let canWidth = ((screen.availWidth)*100)/100
+            let clear = ctx.createImageData(canWidth, 720)
+            ctx.putImageData(clear, 0, 0)
+            ctx.drawImage(this, 0,0)
+        }
+		newStep.style.display = 'block'
+		newStep.style.width = '100%'
+	
+	newStep.addEventListener('dblclick', function(e){
+		   let sure = confirm('Delete Step?')
+		   if(sure == true){
+		   let attrs = ['alt', 'src']
+		   attrs.forEach(a=>{
+		    Object.defineProperty(this, a, {value: newStep.querySelector('img').getAttributeNode(a).value})
+		   })
+		   if(prjctsStrg !== null){
+		   if(prjctsStrg.length > 0){
+		 for(let p = 0; p < prjctsStrg.length; p++){	
+		  if(prjctsStrg[p].objKey == canvas.getAttribute('class')){
+		  let nsObj = Object.create({})
+		  nsObj.name = prjctsStrg[p].name
+		  nsObj.objKey = prjctsStrg[p].objKey
+         let imgArr = prjctStrg[p].steps
+			for(let e = 0; e<= imgArr.length; e++){
+			    if(imgArr[e].alt == this['alt']){
+			       imgArr.splice(imgArr[e], 1)
+				   nsObj.steps = imgArr
+				   break;
+			   }
+			prjctsStrg[p] =  nsObj
+		  }	
+		   }else{
+		   e.preventDefault()
+		   }
+		 }		
+		}
+	}
+			  this.remove()
+	}})
+	try{
+	steps[stepNum].insertAdjacentElement('afterend', newStep)
+	}catch(e){
+	  	canStepNav.appendChild(newStep)
+	}
+	}
+    canDivBtns.querySelectorAll('button')[5].onclick = function(){
+        let newP = document.createElement('p')
+        newP.style.position = 'absolute'
+     //   newP.style.width = '50px'
+		//newP.style.height = '30px'
+          newP.style.background = 'none'
+        newP.setAttribute('contenteditable', 'true')
+		newP.style.border = 'green 1px solid'
+		newP.style.fontSize = `${parseInt(this.parentElement.parentElement.querySelector('p').innerText, 10)}px`
+        canvas['onclick'] = function(e){         
+            let posObj = getPosObj(e.clientX, e.clientY)
+			let {x, y} = posObj
+            newP.style.top = `${e.clientY-200}px`
+            newP.style.left = `${e.clientX-200}px`
+             canvas.parentElement.appendChild(newP)
+            newP.focus()
+            newP.onkeydown = function(e){
+			let pWidth = parseInt(window.getComputedStyle(newP).getPropertyValue('width').replace('px', ''), 10)
+               let code = e.keyCode || e.which
+               if(code == 13){
+                   this.blur()
+                   ctx.font = `${parseInt(this.parentElement.parentElement.querySelector('p').innerText, 10)}px Georgia`
+                    ctx.fillText(`${this.innerText}`,x, y+100)
+                    this.remove()
+                    canvas['click'] = function(e){e.preventDefault()}
+               }
+            }
+
+        }
+   }
+   let evArr = ['onmousedown', 'onclick', 'onkeydown', 'onkeypress', 'onkeyup']
+   evArr.forEach(e=>{
+    canDivBtns.querySelectorAll('input[type=range]')[0][e]=function(){ rangeToTxt(this)}
+   })
+  canvasStyle()
+  loadProjects()
+  
+  let appOpen = false
+  const hideHead = () =>{
+  let header = $('header')///document.body.children[0]
+   appOpen = true
+let waitSlide = setTimeout(function(){
+  header.slideUp()
+}, 5000)
+  }
+  Promise.resolve(hideHead()).then(v=>{
+  printSearch()
+  })
+}
+document.addEventListener('load', canvasOptBtns())
+
+function canvasStyle(){
+    var canvasDiv = document.getElementById('canvas-div') 
+    var canvas = canvasDiv.querySelector('#canvas').children[0]
+    let canvasStyleDiv = canvas.parentElement.nextElementSibling
+    let rangesDiv = canvasStyleDiv.querySelector('#rangeIns')
+	let ranges = rangesDiv.querySelectorAll('input[type=range]')
+    let evList = ['onkeydown', 'onclick', 'onmousemove']
+    
+    evList.forEach(e=>{
+        ranges[0][e]=function(){
+		rangeToTxt(rangesDiv.querySelectorAll('input[type=range]')[0])
+
+		}
+        })
+        evList.forEach(e=>{
+        ranges[1][e]=function(){
+				changeColor(rangesDiv.querySelectorAll('input[type=range]')[1])
+		rangeToTxt(rangesDiv.querySelectorAll('input[type=range]')[1]);
+		}
+        })
+
+     
+    }
+(function drawStyle(){
+
+ var canvasDiv = document.getElementById('canvas-div')
+var prjctSteps = canvasDiv.previousElementSibling 
+	var canvasStyle = canvasDiv.querySelector('#canvas-style')
+	let csPs = canvasStyle.querySelectorAll('p')
+    var color = canvasStyle.querySelector('#rangeIns').querySelectorAll('#color')[0].innerText
+    var canvas = canvasDiv.querySelector('#canvas').querySelectorAll('canvas')[0]
+		var ctx = canvas.getContext('2d')
+   let printDiv = document.querySelector('#print-div')
+   let backBtnDiv = printDiv.querySelectorAll('#back-btn')[0].children[0]
+   backBtnDiv.onclick = function(e){
+   let save = confirm('Do you want to save your project?')
+   if(save === true){
+   location.href = location.href
+	 }else{
+	  e.preventDefault()
+	 }
+   }
+   
+   
+	ctx.canvas.height = (window.innerHeight - Math.abs((screen.availHeight)-window.innerHeight))
+	ctx.canvas.width = window.innerWidth
+    let drawStyleDiv = canvasDiv.querySelector('#lineStyleBtns')
+			 function delCir(btn){
+	 	 if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+        }
+		btn.onclick = function(){
+		   btn.removeEventListener("click", delCir(this), false)
+		   this.click()
+		}
+	 }
+    drawStyleDiv.querySelectorAll('button')[0].onclick = function(e){
+
+	let n = 0
+	n+=1
+	if(n % 2 !== 0){
+	    if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+        }
+
+	toggleEvnt('solid', color)
+       }
+	   this.nextElementSibling.addEventListener('click', function(){
+	     	  let tn = 0
+	 let allBtns = canvasDiv.querySelectorAll('button')
+	 allBtns.forEach(b =>{b.addEventListener("click",delCir(this), false)})
+
+	if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+        }
+	    tn+=1
+		   if(tn % 2 !== 0){
+		   
+		 let circle = document.createElement('div')
+		circle.setAttribute('class', 'n')
+        circle.style.position = 'absolute'
+        circle.style.height = '50px'
+        circle.style.width = '50px'
+        circle.style.borderRadius= '25px'
+        circle.style.border = '1px solid blue'
+        circle.style.top = (e.clientY-100)+'px'
+        circle.style.left = (e.clientX-175)+'px'
+		     canvas.onmousemove = function(e){		
+				moveCir(e, circle)		     
+				}
+		toggleEvnt('solid', 'white') 				
+         }else{
+           if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+            }	
+			e.preventDefault()
+}
+	   }, false)
+	} 
+  
+  drawStyleDiv.querySelectorAll('button')[1].onclick = function(e){  
+  	  let tn = 0
+	 let allBtns = canvasDiv.querySelectorAll('button')
+	 allBtns.forEach(b =>{b.addEventListener("click",delCir(this), false)})
+
+	if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+        }
+	    tn+=1
+		   if(tn % 2 !== 0){
+   	   let circle = document.createElement('div')
+		circle.setAttribute('class', 'n')
+        circle.style.position = 'absolute'
+        circle.style.height = '50px'
+        circle.style.width = '50px'
+        circle.style.borderRadius= '25px'
+        circle.style.border = '1px solid blue'
+        circle.style.top = (e.clientY-100)+'px'
+        circle.style.left = (e.clientX-175)+'px'
+		     canvas.onmousemove = function(e){		
+				moveCir(e, circle)		     
+				}
+		toggleEvnt('solid', 'white') 				
+         }else{
+           if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+            }	
+			e.preventDefault()
+}
+}
+	  
+	  function moveCir(e, cir){
+	  cir.style.display = 'none'
+		   if(canvas.parentElement.querySelectorAll('.n').length == 1){
+		canvas.parentElement.querySelectorAll('.n')[0].remove()
+        }
+      saveDrawing()	  
+         canvas.parentElement.appendChild(cir)
+     	 cir.style.top = (e.clientY-100)+'px'
+         cir.style.left = (e.clientX-165)+'px'
+    } 
+	 function saveDrawing(){
+let canvasData = ctx.getImageData(0, 0 , 510, Math.round((((screen.availWidth*70)/100)*86)/100))
+let emptData = ctx.createImageData(510, Math.round((((screen.availWidth*70)/100)*86)/100))
+let dataArr = [emptData,canvasData]
+dataArr.forEach(d=>{
+  ctx.putImageData(d, 0,0)
+})
+   }
+})() 
+	  function toPrjct(){
+ let elmtArr = ['header', 'nav', 'hr', '#print-sel', '#prjct-nav', '#sel-nav-div']
+   elmtArr.forEach(s =>{
+   let tagArr = Array.from(document.querySelectorAll(s))
+   tagArr.forEach(t =>{
+   t.style.display = 'none'
+   })})
+   
+   document.body.querySelectorAll('#print-div')[0].style.display= 'block'
+   
+   document.body.querySelectorAll('#print-div')[0].children[0].style.display= 'block'
+    // firstTime(document.body.querySelectorAll('#print-div')[0])
+	  }
+	  function toPrjctSel(){
+	     let elmtArr = ['header', 'nav', 'hr','#print-sel', '#prjct-nav', '#sel-nav-div']
+   elmtArr.forEach(s =>{
+   let tagArr = Array.from(document.querySelectorAll(s))
+   tagArr.forEach(t =>{
+   t.style.display = 'block'
+   })})
+      document.querySelectorAll('#print-div')[0].style.display= 'none'
+      document.querySelectorAll('#print-sel')[0].style.display= 'grid'
+sessionStorage.clear()	
+	}
+function rangeToTxt(ran){
+    let val = ran.value
+    let p = ran.nextElementSibling
+    p.innerText = val
+}
+function toggleEvnt(ls,col, size){
+    let canvasDiv = document.getElementById('canvas-div')
+	let canvasDivDivs = canvasDiv.getElementsByTagName('div')
+	let cans = canvasDivDivs['canvas'].children[0]
+	let canStyleDiv = canvasDivDivs['canvas-style']
+	//let rgbP = canStyleDiv['color'].innerText
+	let rangeIns = canvasDivDivs["rangeIns"]
+	let color
+	if(col == 'white'){
+	color = 'white'
+	}else{
+	color = col
+	//let cir = canvasDivDivs["n"]
+}				
+//	console.log(color)
+    let canvas = canvasDivDivs["canvas"].querySelectorAll('canvas')[0]
+	let styles = ['height', 'width']
+	styles.forEach((p, i) =>{
+		styles[i] = parseInt(window.getComputedStyle(canvas).getPropertyValue(p).replace('px', ''), 10)
+	})
+    let ctx = canvas.getContext('2d')
+	//ctx.canvas.height= window.innerHeight
+    //ctx.canvas.width = window.innerWidth
+	let val = 0
+	canvas.onclick = function(e){
+	
+		canvas.style.cursor = 'crosshair'
+	val+=1
+    if(val % 2 !== 0){	
+	let pos= {
+	x:((Math.abs(e.clientX*2)-320)-((200*(2*e.clientX))/screen.availWidth)), 
+	y:((Math.abs(e.clientY*2)-200)-((200*(2*e.clientY))/screen.availHeight))+50
+	}
+	let canvasEvnts = ['onmousemove']
+	let elmntArr = [canvas, document.body]
+	canvasEvnts.forEach(e =>{ 
+	  canvas[e] = function(e){drawImg(e,col,ctx, ls, pos, canvas, size)}
+	})
+    }else{
+		canvas.style.cursor = 'arrow'
+		  canvas["onmousemove"] = function(e){e.preventDefault()}	
+      }
+	}
+	}
+
+function drawImg(e,col,ctx, ls, obj, can){
+let lw
+    var canvasDiv = document.getElementById('canvas-div') 
+    var canvas = canvasDiv.querySelector('#canvas').querySelectorAll('canvas')[0]
+    let canvasStyleDiv = canvas.parentElement.nextElementSibling.children[0]
+	
+	let Ps = Array.from(canvasStyleDiv.querySelectorAll('p'))
+	let color
+if(col == 'white'){
+//console.log('white')
+if(can.parentElement.querySelector('.n').length == 1){
+ can.parentElement.querySelector('.n').style.top = (e.clientY-160)+'px'
+  can.parentElement.querySelector('.n').style.left= (e.clientX-190)+'px'
+  }
+  lw = '50'
+  color = col
+}else{ 
+lw = (parseInt(Ps[0].innerText, 10)+'') //== '')? '1': (parseInt(Ps[0].innerText, 10)+'')
+color =(Ps[2].innerText)//?'rgb(0,0,0)': Ps[2].innerText
+}
+//}else{lw = '4'}
+    let pos = obj
+    if(ls == 'solid'){
+	//console.log(color)
+    ctx.beginPath()
+    ctx.lineWidth = lw
+    ctx.strokeStyle = color
+    ctx.moveTo(pos.x, pos.y)
+    ctx.lineTo(((Math.abs(e.clientX*2)-320)-((200*(2*e.clientX))/screen.availWidth)), ((Math.abs(e.clientY*2)-200)-((200*(2*e.clientY))/screen.availHeight))+50)
+	pos.x = ((Math.abs(e.clientX*2)-320)-((200*(2*e.clientX))/screen.availWidth))
+	pos.y = ((Math.abs(e.clientY*2)-200)-((200*(2*e.clientY))/screen.availHeight))+50
+	ctx.stroke()
+    }else if(ls == 'dotted'){
+        ctx.setLineDash([10, 10])
+       ctx.beginPath()
+       ctx.strokeStyle = color
+       ctx.rect()
+    }
+} 
+(function insertShape(){
+    let canvasDiv = document.getElementById('canvas-div')
+	let canDivDivs = canvasDiv.getElementsByTagName('div')
+    let canvas = canDivDivs["canvas"].children[0]
+    let ctx = canvas.getContext('2d')
+ // ctx.canvas.width = window.innerWidth
+ /// ctx.canvas.height = window.innerHeight
+    let addShapesDiv = canDivDivs["shapes"]
+    let shapeBtns = addShapesDiv.querySelectorAll('button')
+    let eventArr = ['onmousedown', 'onkeypress', 'onkeydown', 'onclick', 'onmouseup']
+    eventArr.forEach(e=>{
+	     addShapesDiv.querySelectorAll('input[type=range]')[0][e] = function(){ rangeToTxt(addShapesDiv.querySelectorAll('input[type=range]')[0])}
+		addShapesDiv.querySelectorAll('input[type=range]')[1][e] = function(){ rangeToTxt(addShapesDiv.querySelectorAll('input[type=range]')[1])}
+        addShapesDiv.querySelectorAll('input[type=range]')[2][e] = function(){ rangeToTxt(addShapesDiv.querySelectorAll('input[type=range]')[2])}
+    
+	 })
+  
+    let color = addShapesDiv.querySelectorAll('input[type=range]')[1].nextElementSibling.nextElementSibling.innerText
+	let shapeDivPs = Array.from(addShapesDiv.querySelectorAll('p'))
+	let shapeDivInpts = Array.from(addShapesDiv.querySelectorAll('input[type=range]')).map((inp)=>{return inp.value})
+	let [shapeWidth, shapeHeight] = shapeDivInpts
+	let [sw, sh, scn] = shapeDivPs
+   let num = 0
+	
+    shapeBtns[0].onclick = function(e){
+			let n = 0
+	         n+=1
+        canvas.style.cursor = 'crosshair'
+				if(n % 2 !== 0){
+		this.classList.value = ('fas fa-square')
+        canvas.onclick = function(e){
+		let x = e.clientX, y = e.clientY
+		let posObj = getPosObj(e.clientX, e.clientY)
+            ctx.strokeStyle = color
+            ctx.strokeRect(posObj['x'], posObj['y'])
+        }
+      }else if(n % 3 !== 0){
+	  		this.classList.value = ('fas fa-cube')
+		  let cn = 0
+      canvas.onclick = function(e){	
+	  		  cn+=1
+			if(cn % 2 !== 0){
+		threeDrawing(getPosObj(e.clientX, e.clientY))
+		}else{
+		  e.preventDefault()
+		}
+		}
+	  } 
+	}
+    shapeBtns[1].onclick = function(){
+	 let n = 0
+	 n+=1
+        canvas.style.cursor = 'crosshair'
+				if(n % 2 !== 0){
+
+        canvas.onclick = function(e){
+				let posObj = getPosObj(e.clientX, e.clientY)
+		ctx.beginPath()
+            ctx.strokeStyle = color
+            ctx.arc((posObj.x-(Math.round((screen.availWidth*10)/100))+230), posObj.y+90, (parseInt(sh.innerText, 10)),0, Math.PI*2)
+            ctx.stroke()
+			}
+        }else if(n % 3 !== 0){
+	  		this.classList.value = ('fas fa-ball')
+		  let cn = 0
+      canvas.onclick = function(e){	
+	  let cirCoordObj = Object.create({})
+	  let posArr=[(posObj.x-(Math.round((screen.availWidth*10)/100))+230), posObj.y+90, (parseInt(sh.innerText, 10)),0, Math.PI*2]
+	      let posObjProps = Object.keys(getPosObj(e.clientX, e.clientY))
+	  		  cn+=1
+			if(cn % 2 !== 0){
+		posObjProps.forEach((p, i)=>{
+		  cirCoordObj[p] = posArr[i]
+		})
+		threeDrawing(cirCoordObj)
+		}else{
+		  e.preventDefault()
+		}
+		}
+	   }else{
+		  e.preventDefault()
+		}
+    }
+    shapeBtns[2].onclick = function(){
+	let posObj
+	let n = 0
+        canvas.style.cursor = 'crosshair'
+         n+= 1
+if(n % 2 !== 0){
+      
+            canvas.onclick = function(e){
+			  posObj = getPosObj(e.clientX, e.clientY)
+			  
+                if(posObj.x == '' && posObj.y == ''){
+								let newLastPos = getPosObj(e.clientX, e.clientY)
+                    let newCtx = canvas.getContext('2d')
+                    newCtx.beginPath()
+                    if(num% 2 == 0){
+                        ctx.setLineDash([20, 20])
+                    }else{
+                        ctx.setLineDash([])
+                    }
+                    newCtx.moveTo(newLastPos.x, newLastPos.y)
+					newLastPos = getPosObj(e.clientX, e.clientY) 
+                    ctx.lineTo(newLastPos.x, newLastPos.y)
+                    lastPos(newLastPos.x, newLastPos.y)
+                    ctx.stroke()
+                }else{
+                ctx.lineTo(posObj.x, posObj.y+100)
+				let newLastPos = getPosObj(e.clientX, e.clientY)
+           lastPos(newLastPos.x,newLastPos.y)
+                ctx.stroke()
+            }
+    addShapesDiv.nextElementSibling.onclick = function(e){
+        lastPos('','')
+    }
+        }
+		}else if(n % 3 !== 0){
+	  		this.classList.value = ('fas fa-ball')
+		  let cn = 0
+      canvas.onclick = function(e){	
+	  let cirCoordObj = Object.create({})
+	  let posArr = [(posObj.x-(Math.round((screen.availWidth*10)/100))+230), posObj.y+90, (parseInt(sh.innerText, 10)),0, Math.PI*2]
+	      let posObjProps = Object.keys(getPosObj(e.clientX, e.clientY))
+	  		  cn+=1
+			if(cn % 2 !== 0){
+		posObjProps.forEach((p, i)=>{
+		  cirCoordObj[p] = posArr[i]
+		})
+		threeDrawing(cirCoordObj)
+		}else{
+		  e.preventDefault()
+		}
+		}
+	  } else{
+		 e.preventDefault()
+		}
+    }
+function setShapeCoords(shapeType,shapeObj){
+let {x, y} = shapeObj
+  let shapeCoordObj = Object.create({})
+
+if(shapeType.toLowerCase().trim() == 'quadrilateral'){
+  shapeCoordObj['c1'] = [x, y+shapeHeight]
+  shapeCoordObj['c2'] = [x+shapeWidth, y]
+  shapeCoordObj['c3'] = [x, y-shapeHeight]
+  shapeCoordObj['c4'] = [x+shapeWidth, y]
+  return shapeCoordObj
+}else if(shapeType.toLowerCase().trim() == 'circle'){
+let crsntPer, heightPer = (((shapeWidth)*(shapeHeight/2))/shapeHeight)
+ /*for(let xn = x; xn <= x+shapeWidth;xn++){
+ 
+   crsntPer = (shapeWidth)
+ shapeCoordObj['x'+xn] = xn
+ shapeCoordObj['y'] = y
+ }*/
+ let yMid = y-(shapeHeight/2), yBtm = y-(shapeHeight), yTop = y
+  let xMid = x-(shapeWidth/2), xBtm = x-(shapeWidth), xTop = x
+let rndm = (Math.random()+'')
+/*
+ 
+			 _ _
+    | | |
+    |_|_|
+	\ | /
+	 \|/
+   ///////}
+   /     //
+		 //
+___	 /////_
+/\/| //	|\/\  
+ /\| //	|/\ \
+//		  \\ \
+/	 ()	   \\_\
+ 
+ 
+ 
+  */
+}}
+    function changelineStyle(type, col){
+        canvas.removeEventListener('mousemove',drawImg(e, col, canvas.getContext('2d'), type) , false)       
+        this.style.borderColor = 'gray'
+        this.style.backgroundColor = 'gray'
+
+        canvas.onmouseover = function(e){
+            let num = 0
+            let lastCoords = getPosObj(e.clientX,e.clientY)
+          lastPos(lastCoords.x, lastCoords.y)
+            num+=1
+        toggleEvnt('mousemove', num, type, col)
+        }
+        this.onclick = function(){
+            num+=1
+            toggleEvnt('mousemove', num, type,col)
+        }
+    }
+
+ function drawToCanvas(col){
+        var canvasDiv = document.getElementById('canvas-div') 
+        var canvas = canvasDiv.querySelector('canvas')
+       var canDivBtns = canvasDiv.querySelector('#canvas-opt')
+        var ctx = canvas.getContext('2d')
+        let num = 0
+        let lastPos = {
+		
+		}
+       canvas.onclick = function(e){
+           lastPos.x = e.clientX
+           lastPos.y = e.clientY
+           num+=1
+           toggleEvnt(e,num, 'solid', col)
+       }
+    }}
+)()
+function lastPos(x, y){
+  
+    let coordObj = {
+        x: Math.round(((x === undefined)? 0 : x)),
+        y: Math.round(((y === undefined)? 0 : y))
+    }
+    return coordObj
+}
+function changeColor(ran){
+    let num = parseInt(ran.nextElementSibling.innerText, 10)
+    let r = num,g = 0,b =0
+    let p = ran.nextElementSibling
+    let pNum = parseInt(p.innerText, 10)
+    p.innerText = ran.value
+   // r = num
+   // switch(num){
+   let cssStr
+        // num is red
+        if(pNum < 255 && g == 0 && b == 0){
+            r = num
+            g = 0
+            b = 0
+         }else if(r >= 255 && g == 0 && b == 0){
+		 /*change num to yellow*/
+		 p.innerText = Math.abs(num -255)
+            b = 0 
+			
+		 g = ((parseInt(p.innerText, 10) == 255)? 0: ((parseInt(p.innerText, 10))))
+            r = (num >= (255*2))?0:255
+			if(g > 255){
+			p.innerText = Math.abs(g - 255)
+			//b = Math.abs(parseInt(p.innerText, 10) - 255)
+			}
+
+			//num is yellow
+           }else if(g > 0&&g < 255 &&b == 0 && r == 255){
+            r = 255
+            g = num
+            b = 0
+            }else if(b == 0 && r == 255 && (g >255 || num > 255 || pNum > 255)){
+			        //change num to green
+            r = 0
+            g = Math.abs(g-255)
+            b = 0
+
+        }else if(g > 0&&r == 0&&b == 0&& (g >255 || num > 255 || pNum > 255)){
+		 // num is green
+		 	p.innerText = Math.abs(g - 255)
+            g = num
+            r = 0
+            b = 255
+
+            //change num to blue
+        }else if(r == 0&&g == 255&& (g >255 || num > 255 || pNum > 255)){
+            p.innerText = Math.abs(num -(255*2))
+             r=0
+             g = 0
+            b = num
+          
+            //num is blue
+        } else if(r == 0&&b >= 1&& b <= 255 && g == 0){
+            r=0
+            g = 0  
+            b = (num-255)
+            //change num to purple
+        }else if(b == 255 && r==0&& g == 0){
+            num = Math.abs(pNum -225)
+            b = 255
+            r = num
+            g = 0
+            
+            //num is purple
+            }else if(r > 0 && r < 255 && g == 0 && b<=255&& b >= 0){
+            b == 255
+            r = num
+            g = 0
+            //num is black
+            }/*else if(b == 255 && r == 255 && g == 0){
+                num = Math.abs(pNum -225)
+            r == num
+            g = num
+            b = num
+            }*/else{
+           
+                p.innerText = ran.value
+            
+			//	console.log(cssStr)
+                return cssStr
+            /*
+         rgb(255,0,0) red
+         rgb(255,252,0) yellow
+        rgb(0,255,0) green
+        rgb(0,0,255)  blue
+        rgb(255,0,255) purple*/
+    }
+								    cssStr = `rgb(${r},${g},${b})`
+				p.nextElementSibling.innerText=cssStr
+}
+function getPosObj(x, y){
+	let posObj = {
+	x:((Math.abs(x*2)-320)-((200*(2*x))/screen.availWidth)) , y:((Math.abs(y*2)-320)-((180*(2*y))/(screen.availHeight+200)))
+	}
+	return posObj
+	}
+
+function lastImgToSel(){
+    let printSel = document.querySelector('#print-sel')
+	let projects = JSON.parse(localStorage.getItem('projects'))
+    let sels = printSel.children
+	//console.log(projects)
+    let prints
+	if(projects !== null){
+	if(projects.length > 0){
+
+    for(let p = 0; p < projects.length; p++){
+	let stepURL = (projects[p].steps[projects[p].steps.length-1] === undefined)?document.querySelector('#canvas').querySelectorAll('canvas')[0].toDataURL('image/jpeg'): projects[p].steps[projects[p].steps.length-1].imgSrc
+        let lastImg = stepURL
+        let printName = projects[p].name
+		
+       sels[p+1].querySelectorAll('img')[0].src = lastImg
+	sels[p+1].querySelectorAll('h3')[0].innerText = printName
+    }
+	}
+	}
+	/*
+	  bring all of the items from local storage to the print sel in the same order as the way they are appended in the loadStorage function
+	*/
+	  let emptInd = document.createElement('div')
+      if(printSel.childElementCount === 1){
+	  emptInd.setAttribute('id', 'empt-ind')
+   emptInd.innerText = 'No Projects!'
+	 	  let divStyle = {
+       
+  position: 'relative',
+  margin: 'auto',
+  textAlign: 'center',
+  width: '0%',//'60%',
+       height:'0%',//'19%',
+  padding:'0%', //'7%',
+  border: 'solid 7px white',
+  backgroundColor: 'black',
+        backgroundImage: "url('https://bestanimations.com/media/loading-gears/1461993604single-gear-cog-animation-1-3.gif')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize:"80% 130%" , 
+        backgroundPosition: 'center',
+  opacity: '.25',
+  color: 'darkblue',
+        textDecoration:'border' ,
+        textShadow: '3px 3px 3px white',
+        lineHeight: '240%',
+      textDecoration: 'underline',
+  fontSize: '250%',
+  display: 'block',
+  top: '27%',
+        boxShadow:'30px 30px 30px lightblue'
+}
+let styleObjProps = Object.getOwnPropertyNames(divStyle)
+for(let p = 0; p<= styleObjProps.length; p++){
+	emptInd.style[styleObjProps[p]] = divStyle[styleObjProps[p]]
+  }
+  printSel.style.display = 'block'
+  printSel.prepend(emptInd)
+  $('#empt-ind').animate({height: '19%'}).animate({width: '60%'}).animate({padding:'7%'}).animate({fontSize: '240%'})
+ }else{
+ printSel.style.display = 'grid'
+    // printSel.querySelectorAll('empt-ind')[0].remove()
+ }
+   printSel.style.height = `${screen.availHeight-210}px`
+
+ }
+document.addEventListener('load', lastImgToSel(), false)
+function newProject(e){
+   let printSelDiv =  document.querySelector('#print-sel')
+   if(printSelDiv.querySelectorAll('#empt-ind').length === 1){
+   printSelDiv.children[0].remove()
+   printSelDiv.style.display = 'grid'
+   }
+   let printDiv = document.querySelector('#print-div')
+   let projectDiv = printDiv.children[0]
+   let canvasDiv= document.querySelector('#canvas-div') 
+   let canvasHis = canvasDiv.querySelector('#nav')
+   let stepDiv = printDiv.querySelector('#step-nav')
+   let imgDiv = printDiv.querySelector('#step-nav').children[1]
+   let canvas = canvasDiv.querySelector('#canvas').children[0]
+   let ctx = canvas.getContext('2d')
+   ctx.canvas.height = (window.innerHeight + Math.abs(screen.availHeight - window.innerHeight))
+   ctx.canvas.width = window.innerWidth
+   let prjctStrg = getData()
+   let printName = ''
+   let num = (Math.random() + '').slice(1, 8)
+   let getName = prompt('Print Name', '')
+   if(getName === null){
+   e.preventDefault()
+   }else{
+  // console.log(getName)
+   
+      let printSel = printSelDiv.children[0].cloneNode(true)
+   if(getName == ''){
+       printName = `Project${num}`
+   }else{
+		printName = getName
+   }
+         let rndmNum = ((Math.random()+'')).replace('.', '')
+		 let objKey =rndmNum.slice(1, 15)
+
+   printSel.querySelector('h3').innerText = printName
+   printSel.querySelectorAll('img')[0].src = canvas.toDataURL('image/jpeg')
+   printSel.getAttributeNode('class').value = (objKey)
+   printSel.querySelector('button').onclick = function(e){
+     removeSel(prjctStrg, this.parentElement)
+   }
+   printSel.style.display = 'block'
+   printSel.style.marginTop = '10px'
+   
+   printSel.querySelectorAll('img')[0].onclick = function(){
+     clickPrjct(this.parentElement,projectDiv, printName, prjctStrg, stepDiv, printDiv, canvas)
+    
+}
+  let sels = printSelDiv.getElementsByTagName("div")
+ adjustPrjctNav(printSelDiv, sels, prjctStrg, printSel) 
+}}
+function clickPrjct(div,projectDiv, printName, prjctStrg, stepNav, printDiv, can){
+   
+	projectDiv.querySelector('h2').innerText = printName
+   toPrjct()
+if(prjctStrg !== null){
+if(prjctStrg.length > 0){
+  for(let o = 0; o < prjctStrg.length; o++){
+	let objExsts = prjctStrg.some(b =>{return b['objKey'] == div.getAttributeNode('class').value})
+if(objExsts === true){
+ prjctStrg[o].steps.forEach(p =>{ 
+  let newImgDiv = imgDiv.cloneNode(true)
+ let imgAttrs = ['alt', 'src']
+ imgAttrs.forEach(s =>{
+   Object.defineProperty(newImgDiv, s, {value: newImgDiv.getAttributeNode(s).value})
+ })
+ newImgDiv['alt'] = p['alt']
+ newImgDiv['src'] = p['imgSrc']
+ stepNav.appendChild(newImgDiv)
+ })
+}
+ 
+  }
+  }
+}
+
+//console.log(div.getAttributeNode('class').value)
+can.getAttributeNode('class').value = div.getAttributeNode('class').value	
+	   printDiv.children[0].style.display = 'block'
+}
+ //document.addEventListener('contextmenu',function(e){e.preventDefault()})
+ function allDivs(elm){
+   return (elm === undefined) ? document.body.getElementsByTagName("*"): elm.getElementsByTagName("*")
+ }
+
+function printSearch(){
+    let nav = document.querySelector('nav')
+    let searchDiv = nav.querySelectorAll('div')[0]
+    let searchIn = searchDiv.querySelector('input')
+	    let printSelDiv =  document.querySelector('#print-sel')
+	let sels = printSelDiv.children
+	let sess = (JSON.parse(sessionStorage.getItem('newPrjcts')) === null)? []: JSON.parse(sessionStorage.getItem('newPrjcts'))
+	let loc = (JSON.parse(sessionStorage.getItem('projects'))  === null)? []: JSON.parse(sessionStorage.getItem('projects'))
+	let prjctsSum = sess.length+loc.length
+	if(sels > 2){
+	document.body.querySelector('#print-sel').children[0].remove()
+  searchIn.getAttributeNode('oninput').value = "w3.filterHTML('#print-sel', '#print-img', this.value)"
+	}
+
+}
+   function divFind(printSelDivs, val){
+        if(val.length > 0 || val != undefined){
+           for(let d= 1; d <printSelDivs.length; d++){
+               if(printSelDivs[d].querySelector('h3').innerText.slice(0, val.length) == val){
+                   printSelDivs[d].style.display = 'block'
+               }else{
+                    printSelDivs[d].style.display = 'none'                       
+               }
+               continue
+            }
+        }else{alert('Cannot Search!')}
+    }
+(function canvasClick(div, n, img){
+let canvas = document.getElementById('canvas-div').querySelector('#canvas').children[0]
+canvas.parentElement['onclick'] = function(){
+  let print = document.getElementById('print')
+  let printDivs = print.getElementsByTagName('div')
+   let imgNav = printDivs["nav"]
+   let imgDiv = imgNav.querySelector('#img-div')
+   let imgs = imgNav.children
+   let divClone = imgDiv.cloneNode(true)
+   
+	 let newURL = canvas.toDataURL('image/png')
+	 divClone.querySelector('img').src= newURL
+	 divClone.style.display = 'inline-block'
+	 divClone.style.height = 'inherit'
+	 divClone.style.width ='150px'
+
+	 if(imgDiv.length >2){
+	imgNav.querySelectorAll('div').forEach(n =>{
+	   n.blur()
+	 })
+	 }
+	 divClone.focus()
+	 imgNav.appendChild(divClone)
+	let divIndx = imgs.length
+	 console.log('length ',imgs.length)
+    let navBtnsDiv = document.getElementById('nav-btns')
+    let btns = navBtnsDiv.querySelectorAll('button')
+    let imgNavDivArr = Array.from(imgNav.querySelectorAll('div'))
+    let canvasDiv = document.getElementById('canvas-div')
+	let canDivDivs = canvasDiv.getElementsByTagName('div')
+    let ctx = canvas.getContext('2d')
+	  if(imgs.length == 1){
+        btns.forEach(b=>{b.style.opacity = '.5';
+		b.onclick=function(e){e.preventDefault()}
+		})
+    }else if(imgs.length > 2){
+	btns.forEach(b=>{b.style.opacity = '1'})
+	btns[0].onclick = function(){
+        divIndx-=1
+  let i = (divIndx < 0)? divIndx+=1: divIndx 
+		
+        setImg(imgs[divIndx])
+    }
+    btns[1].onclick = function(){
+   divIndx+=1
+   
+  let i = (divIndx > Math.abs(imgs.length-1))? divIndx-=1: divIndx 
+   setImg(imgs[divIndx])
+    }
+    }
+
+    function setImg(img){
+	let ctx = canvas.getContext('2d')
+        canvas.getAttributeNode('class').value= img.getAttribute('class')
+		let canWidth = Math.round(screen.availWidth*100)/100
+        let newImg = new Image(canWidth, 700)
+		newImg.src = img.querySelector('img').getAttributeNode('src').value//canvas.toDataURL('image/png')
+        newImg.style.display = 'none'
+            newImg.style.position = 'absolute'
+        newImg.decoding = 'async'
+        newImg.decode().then(v=>{
+            
+            canvas.parentElement.appendChild(newImg)
+			ctx.putImageData(ctx.createImageData(canWidth, 720), 0,0)
+           ctx.drawImage(img.querySelector('img'), 0, 0)
+            newImg.src = img.querySelector('img').getAttributeNode('src').value
+                canvas.parentElement.removeChild(newImg)
+        .catch(e=>{
+		//console.log(e.name, e.message)
+		})
+
+    })}}})()
+function loadProjects(){ 
+let prjcts = getData()
+  let printSelDiv =  document.body.querySelector('#print-sel')
+if(prjcts !== null){
+if(prjcts.length > 0){
+  //prjcts = prjcts.reverse()
+	for(let p = 0; p < prjcts.length;p++){
+   let printSel = printSelDiv.children[0].cloneNode(true)
+   
+   let printDiv = document.body.querySelector('#print-div')
+   printSel.querySelectorAll('h3')[0].innerText = prjcts[p].name
+   printSel.querySelector('button')['onclick'] = function(e){  
+      let delCon = confirm('Delete Project?')
+	  if(delCon === true){
+	  prjcts.splice(prjcts.indexOf(prjcts[p]), 1)
+	  localStorage.setItem('projects', JSON.stringify(prjcts))
+	  console.log(JSON.parse(localStorage.getItem('projects')))
+	    this.parentElement.remove()
+		location.href = location.href
+	  }else{e.preventDefault()}
+   }
+   let stepURL = (prjcts[p].steps[prjcts[p].steps.length-1] === undefined)?document.querySelector('#canvas').querySelectorAll('canvas')[0].toDataURL('image/jpeg'): prjcts[p].steps[prjcts[p].steps.length-1].imgSrc
+   printSel.querySelectorAll('img')[0].src = stepURL
+   printSel.getAttributeNode('class').value = prjcts[p].objKey
+   printSel.querySelectorAll('img')[0].onclick = function(){ 
+      toPrjct()
+	 let print = printDiv.children[0]
+	  let tags = ['#canvas', '#step-nav', 'h2', '#prjct-nav']
+	  tags.forEach(t =>{
+	    Object.defineProperty(print, t, {value: print.querySelectorAll(t)[0]})
+	  })
+	    if(prjcts[p].objKey == this.parentElement.className){
+
+		  prjcts[p].steps.forEach(s =>{
+		  			 var canvasDiv = document.getElementById('canvas-div')
+		  	let canvasDivDivs = canvasDiv.getElementsByTagName('div')
+    var canvas = canvasDivDivs["canvas"].children[0]
+	let ctx = canvas.getContext('2d')
+	ctx.canvas.height = (window.innerHeight + Math.round(screen.availHeight - window.innerHeight))
+	ctx.canvas.width = window.innerWidth
+			  	canvas.getAttributeNode('class').value = prjcts[p].objKey
+			  let stepClone = print[tags[1]].children[1].cloneNode(true)
+              let attrs = ['alt', 'src']   
+		     stepClone.querySelector('img').getAttributeNode('alt').value = s['alt'] 
+			 stepClone.querySelector('img').src = s['imgSrc']
+			 ctx.drawImage(stepClone.querySelector('img'), 0, 0)
+			 stepClone.querySelector('img')['onclick'] = function(){
+	             this.focus()
+            let canWidth = ((screen.availWidth)*100)/100
+            let clear = ctx.createImageData(canWidth, 700)
+            ctx.putImageData(clear, 0, 0)
+            ctx.drawImage(this, 0,0)
+			}
+             stepClone.querySelector('img')['ondblclick']=function(e){
+		   let sure = confirm('Delete Step?')
+		   if(sure == true){
+		   let attrs = ['alt', 'src']
+		   attrs.forEach(a=>{
+		    Object.defineProperty(this, a, {value: stepClone.querySelector('img').getAttributeNode(a).value})
+		   })
+		   if(prjcts !== null){
+		   if(prjcts.length > 0){
+		 for(let l = 0; l < prjcts.length; l++){	
+		  if(prjcts[l].objKey == canvas.getAttributeNode('class').value){
+		  let nsObj = Object.create({})
+		  nsObj.name = prjcts[l].name
+		  nsObj.objKey = prjcts[l].objKey
+          imgArr = prjcts[l].steps
+			for(let e = 0; e< imgArr.length; e++){
+			    if(imgArr[e].alt == this['alt']){
+			       imgArr.splice(imgArr.indexOf(imgArr[e]), 1)
+				   
+				   nsObj.steps = imgArr
+				   prjcts[l] = nsObj
+				   localStorage.setItem('projects', JSON.stringify(prjcts))
+				  // console.log(JSON.parse(localStorage.getItem('projects')))
+				   				   this.remove()
+				   break;
+			   }		
+		  }	
+		   }else{
+		   e.preventDefault()
+		   }
+		 }		
+		}
+	}		
+	}
+	}			
+			 stepClone.style.display = 'block'
+		  print['#step-nav'].appendChild(stepClone)
+		  })
+		}
+	  
+   }
+   printSel.style.display = 'block'
+   adjustPrjctNav(printSelDiv, printSelDiv.querySelectorAll('div'), prjcts, printSel)
+}
+}
+}
+}
+function addStyles(elem, obj){
+let propNames = Object.keys(obj)
+propNames.forEach(p=>{
+  elem.style[p] = (typeof obj[p] === 'number')? obj[p]+'px': obj[p] 
+})
+}
+function adjustPrjctNav(printSelDiv, sels,prjctStrg = [], sel){
+   let newPrjctStrg = (JSON.parse(sessionStorage.getItem('newPrjcts')) === null)? []:JSON.parse(sessionStorage.getItem('newPrjcts'))
+      let prjcts = getData()
+   let elemArr = ["h3", "img", "button"]
+
+elemArr.forEach(e =>{
+  Object.defineProperty(sel, e, {value: sel.querySelectorAll(e)[0]})
+})   
+	let newPrjctObj = Object.create({})
+	
+   let hasInfoLocal = prjcts.some((o, i, arr)=>{return o.name === sel['h3'].innerText && o.objKey == sel.getAttributeNode('class').value})
+   if(hasInfoLocal === false){
+   newPrjctObj.name = sel["h3"].innerText
+   newPrjctObj.imgSrc = sel["img"].src
+   newPrjctObj.objKey = sel.getAttributeNode('class').value
+   newPrjctStrg.push(newPrjctObj)
+      sessionStorage.setItem('newPrjcts', JSON.stringify(newPrjctStrg))
+
+   }
+   if(sels.length >= 8){
+   let oA = printSelDiv.nextElementSibling.children[0]
+   let cmbdArr = moreThan1(prjcts.concat(newPrjctStrg))
+ 
+ let pageNum =  ((prjcts.length+newPrjctStrg.length)/8)
+if(pageNum % 2 === 0 || (parseInt(((pageNum%2)+'')[((pageNum%2)+'').length-1], 10) == 5) ){
+    printSelDiv.nextElementSibling.innerHTML = ""
+    for(let a = 0; a <= pageNum; a++){
+      let newA = oA.cloneNode(true)
+      newA.innerText = (a+1)+'' 
+      newA.style.display = 'block'
+      newA.style.display = 'inline'
+	  newA.style.marginLeft = '4px'
+      newA.addEventListener('click', function(){
+       let an = parseInt(this.innerText, 10)
+	   	   let slicedArr = newPrjctStrg.slice(((an-1)*8), (an*8)+1)		  
+		   		   //console.log(slicedArr)
+		   let oSel = sels[0]
+			let  oCln = oSel.cloneNode(true)
+		   printSelDiv.innerHTML = ""
+		   oCln.style.display = "none"
+		   printSelDiv.appendChild(oCln)
+		   slicedArr.reverse()
+           slicedArr.forEach((o, i, a) =>{
+             let newSel = oSel.cloneNode(true)
+			 
+             let elems = ['h3', 'img', 'button']
+             elems.forEach((s, i, a) =>{
+               let elem = newSel.querySelectorAll(s)[0]
+               Object.defineProperty(newSel, s, {value: elem})
+             })
+             
+             newSel['h3'].innerText = o.name
+            newSel['img'].src = o.imgSrc
+         newSel['button'].addEventListener('click', function(){
+               removeSel(newPrjctStrg, this.parentElement)
+             })
+			 newSel['img'].addEventListener('click', function(){
+clickPrjct(this.parentElement,document.body.querySelector('#print-div').children[0], o.name, newPrjctsStrg, printSelDiv.nextElementSibling.children[0].querySelector('#step-nav'), document.body.querySelector('#print-div'))
+			 })
+	
+	newSel.style.display = 'block'
+			    newSel.style.marginTop = '10px'
+				if(i == (a.length-1)){
+				  newSel.style.display = 'none'
+				}else{
+				  newSel.style.display = 'display'
+				}
+             printSelDiv.prepend(newSel)
+			 
+           })
+		   let As = printSelDiv.nextElementSibling.querySelectorAll("a")
+		   As.forEach((an, i, arr) =>{
+		    an.style.textDecoration = 'none'
+		   })
+		   this.style.textDecoration = 'underline'
+      })
+	  newA['mouseover']= function(){
+	   this.style.textDecoration = 'underline'
+	  }
+	  newA['mouseout']= function(){
+	   this.style.textDecoration = 'none'
+	  }
+	 printSelDiv.nextElementSibling.appendChild(newA)
+	 
+    }
+   sel.style.display = "none"
+  }
+  }else{
+  sel.style.display = "block"
+  }
+  
+  		             printSelDiv.appendChild(sel)
+}
+function removeSel(prjctStrg, div){
+if(prjctStrg !== null){
+let objKey = div.getAttributeNode('class').value
+	    let objInStrg = prjctStrg.some(p =>{return p['objKey'] == objKey && p['name'] == div.querySelector('h3').innerText})
+   if(prjctStrg.length > 0){
+  for(let o = 0; o < prjctStrg.length; o++){
+   if(typeof prjctStrg[o] == 'Object'||typeof prjctStrg[o] == 'object'){
+   if(prjctStrg[o].objKey == div.getAttributeNode('class').value){
+   let sure = confirm(`Delete ${div.querySelector('h3').innerText}?`)
+   if(sure == true){
+     prjctStrg.splice(prjctStrg[o], 1)	 	 
+      localStorage.setItem('projects', JSON.stringify(prjctStrg))
+	 // console.log(JSON.parse(localStorage.getItem('projects')))	
+		}
+	  }else{
+	    e.preventDefault()	 	
+	  }
+
+	 }}}}
+	 	     				div.remove()
+						   location.href = location.href
+
+}
+
+function deleteXtra(){
+let selDiv = document.body.querySelector('#print-sel')
+let sels = selDiv.getElementsByTagName('div')
+for(let s = 1; s <= sels.length; s++){
+  if(selDiv.querySelectorAll('.'+sels[s].getAttributeNode('class').value).length > 1 ){
+     sels.querySelectorAll('.'+sels[s].getAttributeNode('class').value)[1].remove()
+  }
+ }
+ console.log(`deleting ${sels[s].getAttributeNode('class').value}`)
+ selDiv.children[sels.length-1].remove()
+ console.log('iouhfg')
+}
+function clearSession(){
+    let selsDiv = document.querySelector('#print-sel')
+  let newPrjcts = JSON.parse(sessionStorage.getItem('newPrjcts'))
+  let savedPrjcts = JSON.parse(localStorage.getItem('projects')).filter((obj)=>{
+  let allSels = Array.from(allDivs(selsDiv)).map((elm, i, arr)=>{
+	if(elm.tagName.toLowerCase() === 'div'){
+	  if(parseInt(elm.classList.value, 10) === obj.objKey){
+		return elm
+	  }
+	}
+  })
+  let hasSel = allSels.some((n)=>{
+	return n === obj.objKey
+  })
+    if(hasSel === false){
+	 return obj 
+	}
+  })
+let delNew = confirm('Unstarted Projects will be deleted!')
+if(delNew === true){
+if(selsDiv.querySelectorAll('#print-img').length > 1){
+ /* newPrjcts.concat(savedPrjcts).forEach((np, i, arr)=>{ 
+   if(typeof allDivs(selsDiv)[np.name] !== 'null' || typeof allDivs(selsDiv)[np.name] !== 'undefined'){
+    }
+	})*/}
+  sessionStorage.setItem('newPrjcts', JSON.stringify([]))
+  location.href = location.href
+    console.log('all unstarted projects are now deleted!')
+
+}} 
+
+function filterPrjcts(input){
+     let newPrjctStrg = (JSON.parse(sessionStorage.getItem('newPrjcts')) === null)? []:JSON.parse(sessionStorage.getItem('newPrjcts'))
+     let prjcts =  getData()
+	 let allStorage = prjcts.concat(newPrjctStrg)
+     let delSec = allStorage.map((obj, i, arr)=>{
+	newPrjctStrg.forEach((o,i, arr)=>{
+     let inOthrStrg = prjcts.some((o2, i, arr)=>{
+	return o2 == o 
+	 })
+	 })
+
+   })  
+let searchList = input.parentElement.querySelector('ul')
+searchList.innerHTML = ""
+ let relList = newPrjctStrg.filter((obj, i, arr)=>{
+     console.log(obj.name)
+	return obj.name.toLowerCase().includes(input.value.toLowerCase())
+  })
+ let ctx = document.getElementsByTagName('*')['canvas'].children[0].getContext('2d')
+  if(relList.length > 0){
+  relList.forEach((r, i, arr)=>{
+    let newLi = document.createElement('li')
+	newLi.innerText = r.name
+    newLi.setAttribute('class',r.objKey)
+   newLi.addEventListener('click', function(){
+   let div = document.getElementsByTagName('*')
+   //function clickPrjct(div,projectDiv, printName, prjctStrg, stepNav, printDiv, can){
+
+     clickPrjct(newLi,div['print'], r.name,allStorage,div['step-nav'], div['print'].children[0], div['canvas'].children[0])
+      toPrjct()
+     
+    })
+	searchList.append(newLi)
+  })
+  }else{
+        let newL = document.createElement('li')
+newL.innerText = 'none'
+    searchList.append(newL)
+   }
+}
+function previewPrjcts(sel){
+let img = sel.querySelector('img')
+let prjctsArr = getData()
+let trgtObj = prjctsArr.filter((o, i, arr)=>{
+   return (o.name == sel.querySelector('h3').innerText && o.objKey === sel.classList.item(0))
+  })[0]
+  if((typeof trgtObj).toLowerCase() === 'object'){
+  console.log(trgtObj)
+  if(trgtObj === undefined){
+  trgtObj = JSON.parse(sessionStorage.getItem('newPrjcts')).filter((o, i, arr)=>{
+   return (o.name == sel.querySelector('h3').innerText && o.objKey === sel.classList.item(0))
+  })[0]
+  }
+   let prjctSlide
+   let slideProm = new Promise((res)=>{
+   sel.onmouseout = function(e){
+   
+     res('')
+   }
+   let n = 0
+    prjctSlide = setInterval(()=>{
+	  if(n === trgtObj.steps.length){
+	    clearInterval(prjctSlide)
+	  }else{
+	         n+=1
+           img.src = trgtObj.steps[n-1].imgSrc
+	  }
+   }, 1000)
+  })
+  slideProm.then(v=>{
+    clearInterval(prjctSlide)
+	previewPrjcts(this.parentElement)
+	
+  }).catch(e=>{console.log(e.name, e.message)})
+  }
+}
+function insertDragEvnts(img, imgDiv){
+
+ /*img.draggable = 'true'
+  let draggedElm
+img.onclick = function(){
+ alert('yes')
+}
+ img.ondragstart = function(e){
+ draggedElm = e.currentTarget
+   e.dataTransfer.setData('Text', e.target.getAttributeNode('class').value)
+ }
+ let dragged = false
+ let backCol
+ img.ondrag = function(e){
+ 
+ dragged = true
+ let n = 0
+  backCol = setInterval(function(){
+ n+=1
+ if(n % 2 !== 0){
+ imgDiv.style.backgroundColor = 'lightblue'
+ }else{
+  imgDiv.style.backgroundColor = 'white'
+ }
+ }, 700)
+ }
+ 
+ img.ondrop = function(e){
+ dragged = false
+   clearInterval(backCol)
+    let curTarget = e.currentTarget
+    let divsArr = [draggedElm, curTarget]
+	let clones = divsArr.map((d,i)=>{return imgProp(d)['img'].cloneNode(true)})
+	let revClones = clones.reverse()
+	revClones.forEach((c, i, a)=>{
+	let arith = (i === 0)? (i-1): (i+1)
+	  imgProp(divsArr[i])['img'].replaceWith(c)
+	  })
+    //replace dropped img with dragged img when it is over it 
+	
+ }
+ imgDiv.ondragover = function(e){
+  e.preventDefault()
+ }
+ function imgProp(elm){
+   Object.defineProperty(elm,'img',{value: elm.querySelectorAll('img')[0]})
+   return elm
+ }
+ /* function getStep(steps, Class){
+   let arr = Array.from(steps)
+   for(let s = 1; s < arr.length; s++){
+     if(arr[s].getAttribute('class') == Class){
+	   return steps[s]
+	 }
+   }
+ }
+imgDiv.onclick = function(e){
+if(e.touches.length === 2 || e.target.touches.length){
+let swcthCon = confirm('switchh img?')
+if(swtchCon === true){
+let stepInfo = (sessionStorage.getItem('step') == null)? Object.create({}): sessionStorage.getItem('step')
+  let waitInt, waitDrag = new Promise((res, rej)=>{
+     let n = 0
+	 waitInt = setInterval(function(){
+	   if(n == 3){
+	   this.children[0].remove()
+	    res('img drag is initiated')
+	   }else{
+	     n+=1
+	   }
+	 }, 1000)
+	  let evList = ['onmousemove', 'onmouseup']
+  evList.forEach((str, i, arr)=>{
+     this[str] = function(e){
+	    rej('drag function is cancelled!')
+		n=0
+	 }
+  })
+  })
+waitDrag.then(v=>{
+let stepInfo = (JSON.parse(sessionStorage.getItem('stepInfo')) === null)? []: JSON.parse(sessionStorage.getItem('stepInfo'))
+let imgCln = this.children[0].cloneNode(true)
+  console.log(v)
+  let imgCoords = ['top', 'left'].map((s, i, arr)=>{
+   let prop = window.getComputedStyle(this).getPropertyValue(s)
+   let val = prop.replace('px', ''), num = parseInt(val, 10)
+   return num
+  })
+  let [x, y] = imgCoords
+  this.onmousemove = function(e){
+     let clientX = e.clientX || e.target.clientX, clientY = e.clientY || e.target.clientY
+      this.style.position = 'absolute'
+	  this.style.right = clientX+'px'
+	  this.style.top = clientY+'px'
+	  this.onmouseup= function(){
+	     this.appendChild(imgCln)
+		 stepInfo.splice(0, 1)
+	  }
+	  
+  }
+}, v2=>{
+console.log(v)
+}) 
+let stepOBj = Object.create({})
+ stepOBj.imgSrc= this.children[0].src
+ stepOBj.alt = this.children[0].getAttributeNode('alt').value
+ stepOBj.sel = this.getAttributeNode('class').value
+ stepInfo.push(stepOBj)
+ sessionStorage.setItem('stepInfo', JSON.stringify(stepInfo))
+ console.log(JSON.parse(sessionStorage.getItem('stepInfo')))
+ }
+}
+}
+*/
+}
+function getData(){
+let prjcts = JSON.parse(localStorage.getItem('projects'))
+let isNotData = ['', null, undefined].some(v=>{return v === prjcts})
+  return (isNotData === true)? [] : prjcts
+}
+function moreThan1(arr){
+	    cmbdArr = arr.map((obj, i, arr)=>{
+  let n = 0
+     for(let o in arr){
+	 if(o.name == obj.name){
+	 n+=1
+	    if(n > 1){
+		arr.splice(1, o)
+		n-=1
+		}
+	   }
+	   continue
+	 }
+	 return obj
+   })
+   return cmbdArr 
+}
+function del8(){
+let aList = allDvs()['prjct-nav'], pNum, selDiv = allDivs()['print-sel']
+  let slctdA = Array.from(aList.querySelectoAll('a')).filter((elm, i, arr)=>{
+     let elmSty = window.getComputedStyle(elm).getPropertyValue('text-decoration')
+	 if(elmSty == 'underline'){
+	   pNum = parseInt(elm.innerText, 10)
+	 }
+  })
+  let sesStrg = JSON.parse(sessionStorage.getItem('newPrjcts'))
+  let data = moreThan1(getData().concat(sesStrg))
+  let selPage = data.slice(((8*pNum)-1), ((8*pNum)-1)+8)
+  selPage.forEach((p, i, arr)=>{
+   data.splice(i, 1)
+  })
+  aList.children[aList.children.length-1].remove()
+  location.href = location.href
+  data.forEach((obj, i, arr)=>{
+    let newDiv = selDiv.children[0].cloneNode(true)
+    let elmArr = ['h3','img'].map((elm, i)=>{
+	return allDivs(newDiv)[elm]
+	}) //objArr = Object.values(obj)
+let [h3, img] = elmArr
+h3.innerText = obj.name
+img.src = obj.imgSrc
+newDiv.getAttributeNode('class').value = obj.objKey
+newDiv.id = obj.date
+  adjustPrjctNav(selDiv, selDiv.children, data, newDiv)
+  })
+}
+function threeDrawing(coordObj){
+let drawBtns = ['lineStyleBtns', 'shapes'].map((a, i)=>{return Array.from(allDivs()[a].querySelectorAll('button'))})
+drawBtns.forEach((b)=>{
+b.forEach((btn)=>{
+btn.onclick = function(e){
+e.preventDefault()
+  }
+})})
+let [lineStyle, shapes] = drawBtns
+ let renderer = new THREE.WebGLRenderer()
+ renderer.setSize(window.innerHeight, window.innerWidth)
+ document.body.appendChild(renderer)
+ let cam = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 500)
+ cam.position.set(0,0,100)
+ cam.lookAt(0,0,0)
+let scene = new THREE.Scene() 
+lineStyle.children[0].addEventListener('click', (e)=>{
+ let material = new THREE.LineBasicMaterial({color:'0x0000ff'}) || new webkit.THREE.LineBasicMaterial({color:'0x0000ff'})
+ shape = shape.toLowerCase()
+ let geometry = setCoords() 
+let line = new THREE.Line(geometry, material) || new webkit.THREE.Line(geometry, material)
+setGeometry(shape, coordObj)
+}, false)
+function setGeometry(shape){
+ scene.add( shape );
+renderer.render( scene, cam);
+}
+function setCoords(){
+let points = []
+ Array.from(coordObj).forEach((coords)=>{
+	points.push( new THREE.Vector3( ...coords, 0 ) )
+ })
+  let geo = new THREE.BufferGeometry().setFromPoints(points)
+ return geo
+}
+}
+function insertSphere(w, h){
+
+					const data = {
+						radius: 15,
+						widthSegments: 32,
+						heightSegments: 16,
+						phiStart: 0,
+						phiLength: twoPi,
+						thetaStart: 0,
+						thetaLength: Math.PI
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new SphereGeometry(
+								data.radius, data.widthSegments, data.heightSegments, data.phiStart, data.phiLength, data.thetaStart, data.thetaLength
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.SphereGeometry' );
+
+					folder.add( data, 'radius', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'widthSegments', 3, 64 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'heightSegments', 2, 32 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'phiStart', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'phiLength', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'thetaStart', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'thetaLength', 0, twoPi ).onChange( generateGeometry );
+
+					generateGeometry();
+
+				
+}
+function insertCube(){
+
+
+					const data = {
+						width: 15,
+						height: 15,
+						depth: 15,
+						widthSegments: 1,
+						heightSegments: 1,
+						depthSegments: 1
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new BoxGeometry(
+								data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.BoxGeometry' );
+
+					folder.add( data, 'width', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'height', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'depth', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'widthSegments', 1, 10 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'heightSegments', 1, 10 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'depthSegments', 1, 10 ).step( 1 ).onChange( generateGeometry );
+
+					generateGeometry();
+
+				
+}
+function insertCapsule(){
+
+					const data = {
+						radius: 5,
+						length: 5,
+						capSegments: 10,
+						heightSegments: 20
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new CapsuleGeometry( data.radius, data.length, data.capSegments, data.heightSegments ),
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.CapsuleGeometry' );
+
+					folder.add( data, 'radius', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'length', 1, 30 ).onChange( generateGeometry );
+					folder.add( data, 'capSegments', 1, 32 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'heightSegments', 1, 64 ).step( 1 ).onChange( generateGeometry );
+
+					generateGeometry();
+
+				
+}
+function insertCylinder(){
+
+					const data = {
+						radiusTop: 5,
+						radiusBottom: 5,
+						height: 10,
+						radialSegments: 8,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: twoPi
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new CylinderGeometry(
+								data.radiusTop,
+								data.radiusBottom,
+								data.height,
+								data.radialSegments,
+								data.heightSegments,
+								data.openEnded,
+								data.thetaStart,
+								data.thetaLength
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.CylinderGeometry' );
+
+					folder.add( data, 'radiusTop', 0, 30 ).onChange( generateGeometry );
+					folder.add( data, 'radiusBottom', 0, 30 ).onChange( generateGeometry );
+					folder.add( data, 'height', 1, 50 ).onChange( generateGeometry );
+					folder.add( data, 'radialSegments', 3, 64 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'heightSegments', 1, 64 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'openEnded' ).onChange( generateGeometry );
+					folder.add( data, 'thetaStart', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'thetaLength', 0, twoPi ).onChange( generateGeometry );
+
+
+					generateGeometry();
+
+				
+}
+function insertCone(){
+					const data = {
+						radius: 5,
+						height: 10,
+						radialSegments: 8,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: twoPi
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new ConeGeometry(
+								data.radius,
+								data.height,
+								data.radialSegments,
+								data.heightSegments,
+								data.openEnded,
+								data.thetaStart,
+								data.thetaLength
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.ConeGeometry' );
+
+					folder.add( data, 'radius', 0, 30 ).onChange( generateGeometry );
+					folder.add( data, 'height', 1, 50 ).onChange( generateGeometry );
+					folder.add( data, 'radialSegments', 3, 64 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'heightSegments', 1, 64 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'openEnded' ).onChange( generateGeometry );
+					folder.add( data, 'thetaStart', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'thetaLength', 0, twoPi ).onChange( generateGeometry );
+
+
+					generateGeometry();
+
+}
+function insertCircle(){
+
+					const data = {
+						radius: 10,
+						segments: 32,
+						thetaStart: 0,
+						thetaLength: twoPi
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new CircleGeometry(
+								data.radius, data.segments, data.thetaStart, data.thetaLength
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.CircleGeometry' );
+
+					folder.add( data, 'radius', 1, 20 ).onChange( generateGeometry );
+					folder.add( data, 'segments', 0, 128 ).step( 1 ).onChange( generateGeometry );
+					folder.add( data, 'thetaStart', 0, twoPi ).onChange( generateGeometry );
+					folder.add( data, 'thetaLength', 0, twoPi ).onChange( generateGeometry );
+
+					generateGeometry();
+
+}
+function insertDodecahedron(){
+
+					const data = {
+						radius: 10,
+						detail: 0
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new DodecahedronGeometry(
+								data.radius, data.detail
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.DodecahedronGeometry' );
+
+					folder.add( data, 'radius', 1, 20 ).onChange( generateGeometry );
+					folder.add( data, 'detail', 0, 5 ).step( 1 ).onChange( generateGeometry );
+
+					generateGeometry();
+
+}
+function insertIcosahedron(){
+
+					const data = {
+						radius: 10,
+						detail: 0
+					};
+
+					function generateGeometry() {
+
+						updateGroupGeometry( mesh,
+							new IcosahedronGeometry(
+								data.radius, data.detail
+							)
+						);
+
+					}
+
+					const folder = gui.addFolder( 'THREE.IcosahedronGeometry' );
+
+					folder.add( data, 'radius', 1, 20 ).onChange( generateGeometry );
+					folder.add( data, 'detail', 0, 5 ).step( 1 ).onChange( generateGeometry );
+
+					generateGeometry();
+
+				
+}
+function shapePosMnpltr(shapeObj){
+shapeObj.matrixAutoUpdate = false;
+  let mnpltr = styleElm(document.createElement('div'), {height: '60px', width: '180px', position:'absolute', background:'blue'})
+  let spinDim = ['rotY', 'rotX', 'rotZ'].map((inpt, i)=>{
+    let elmsArr = ['h5','input','p'].map((s)=>{
+		let newElm = document.createElement(s)
+		return newElm
+  })
+  let [h5,input, p] = elmsArr
+  h5.innerText = inpt
+        let eventArr = ['onmousedown', 'onkeypress', 'onkeydown', 'onclick', 'onmouseup']
+eventArr.forEach((ev)=>{  
+  input[ev]= function(e){rangeToTxt(this)}
+  })
+  })
+  let elmDis = [{display:'inline-block', position:'relative', width:'55px'},{display:'block', position:'relative'}]
+  elmDis.forEach((ed, i2)=>{
+  styleElm(elms[i2], elmDis[i2])
+  mnpltr.appendChild(elms[i2])
+   })
+ mnpltr.onmouseout = function(e){
+   this.onclick = function(e){
+     mnpltr.remove()
+   }
+ }
+ function render() {
+
+				requestAnimationFrame( render );
+
+				if ( ! options.fixed ) {
+
+					group.rotation.x += 0.005;
+					group.rotation.y += 0.005;
+
+				}
+
+				renderer.render( scene, camera );
+
+			}
+ 
+			window.addEventListener( 'resize', function () {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}, false );
+
+			render()
+ }
+ function removeShape(shape){
+ shape.dispose()
+ console.log('removed')
+ }
+ function shapeOrbit(){
+ 			const scene = new Scene();
+
+ 	const camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 50 );
+						scene.background = new Color( 0xFFFFFF );
+			camera.position.z = 30;
+ const renderer = new WebGLRenderer( { antialias: true } );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const orbit = new OrbitControls( camera, renderer.domElement );
+			orbit.enableZoom = false;
+
+			const lights = [];
+			lights[ 0 ] = new PointLight( 0xffffff, 1, 0 );
+			lights[ 1 ] = new PointLight( 0xffffff, 1, 0 );
+			lights[ 2 ] = new PointLight( 0xffffff, 1, 0 );
+
+			lights[ 0 ].position.set( 0, 200, 0 );
+			lights[ 1 ].position.set( 100, 200, 100 );
+			lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+			scene.add( lights[ 0 ] );
+			scene.add( lights[ 1 ] );
+			scene.add( lights[ 2 ] );
+
+			const group = new Group();
+
+			const geometry = new BufferGeometry();
+			geometry.setAttribute( 'position', new Float32BufferAttribute( [], 3 ) );
+
+
+
+			const options = chooseFromHash( group );
+
+			scene.add( group );
+
+			function render() {
+
+				requestAnimationFrame( render );
+
+				if ( ! options.fixed ) {
+
+					group.rotation.x += 0.005;
+					group.rotation.y += 0.005;
+
+				}
+
+				renderer.render( scene, camera );
+
+			}
+ }
+</script>
+</html>
